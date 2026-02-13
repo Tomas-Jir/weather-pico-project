@@ -1,0 +1,28 @@
+# --- Citlivé soubory ---
+CONFIGURATION.txt
+
+# --- Vývojové prostředí ---
+.vscode/
+.idea/
+
+# --- Python cache ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Build / temp files ---
+*.log
+*.tmp
+
+# --- Editor-specific ---
+*.swp
+*.swo
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+
+# --- MicroPython / Thonny ---
+/dist/
+/build/
