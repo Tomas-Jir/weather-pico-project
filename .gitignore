@@ -205,3 +205,20 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --- Citlivé soubory ---
+CONFIGURATION.txt
+
+# --- Vývojové prostředí ---
+.vscode/
+.idea/
+
+# --- MicroPython / Pico ---
+micropython.uf2
+dist/
+build/
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+
