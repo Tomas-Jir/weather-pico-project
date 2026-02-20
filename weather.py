@@ -82,3 +82,7 @@ def get_weather_with_location():
 
     weather = get_weather(location["lat"], location["lon"])
     return location, weather
+
+
+#fork
+print(location)
