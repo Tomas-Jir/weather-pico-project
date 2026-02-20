@@ -1,36 +1,68 @@
-# Práce s Git a GitHub
-## Zadání práce
-Tento repozitář si zkopírujte do svého počítače, bude sloužit jako základ projektu. 
-Vytvořte si veřejný repozitář na GitHub a propojte ho s lokálním repozitářem, tím co jste si zkopírovali. 
-Vypracujte **zadání programu**, zkuste v průbehu trackovat změny pomocí **git commit**. Po vypracování programu napište vlastní README dokument, který bude sloužit jako návod pro zprovoznění vašeho programu (zapojení, stažení souborů, upravení konfiguračního souboru, nahrání na RPI pico...), nezapomeňte na soubor .gitignore, jelikož se v programu nacházi **API klíč, který nesmí být zveřejněn!!**, případně ignoruje soubory generované vývojovým prostředím jako například .vscode . 
-Váš výsledek nahrajte do GitHub repozitáře.
+# \# Weather Station - Raspberry Pi Pico W
 
-### Zadání programu
-Program bude zahrnovat práci s API a LCD displejem, soubor **CONFIGURATION.txt** bude ukládat v json formátu údaje pro přihlášení k WiFi a API klíč. Spouštěcí soubor pro program bude main.py, program zhotovte pro platformu raspberry pi pico w.
+# 
 
-Každých 10 minut zjišťujte aktuální počasí na aktuální lokaci pomocí API OpenWeatherMap, klíč, který dostanete je omezen na 1000 za den, při testování ostatních částí programu si prosím zkopírujte ukázková JSON data z dokumentace. Aktuální geologickou lokaci si zjistěte pomocí veřejné IP adresy prostřednicvím [IP API](https://ip-api.com), toto API je zdarma a nevyžaduje klíč.
+# Projekt meteostanice postavený na platformě Raspberry Pi Pico W. Program zjišťuje aktuální geologickou polohu podle veřejné IP adresy, stahuje data o počasí přes OpenWeatherMap API a zobrazuje je spolu s aktuálním časem (synchronizovaným přes NTP) na LCD displeji.
 
-Po zapnutí zařízení se ukáže "Connecting to WiFi", po připojení k síti se na displeji zobrazí na pár sekund aktuální souřadnice, poté bude displej ukazovat data o počasí, která vám přijdou vhodná. 
+# 
 
-Zařiďte základní robustnost programu jako automatické připojení k síti po výpadku, či upozornění na špatná data z API.
+# \## Funkcionalita
 
-### Úprava programu
-Pomocí funkce fork na GitHub přidejte do kódu vaší dvojice funkcionalitu aktuálního času, na displej přidejte aktuální čas v sekundách synchronizovaného pomocí NTP, případně uvolněte pro tento údaj místo na displeji, poté využijte funkci contribute pro aktualizování repozitáře autora. Ověřte funkčnost.
+# \- Automatické připojení k WiFi po startu i při výpadku.
 
-### Hodnocení
-Bude hodnoceno za 5 pouze při neplnění činosti na hodínách Dpr.
+# \- Získání polohy (město, souřadnice) přes IP API.
 
+# \- Aktuální počasí aktualizované každých 10 minut.
 
+# \- Zobrazení času ve formátu `HH:MM:SS`.
 
+# \- Ošetření chyb při výpadku API nebo sítě.
 
+# 
 
+# \## Hardwarové zapojení
 
+# \- \*\*Zařízení:\*\* Raspberry Pi Pico W
 
+# \- \*\*Displej:\*\* LCD 16x2 s I2C převodníkem
 
+# \- \*\*Zapojení pinů:\*\*
 
+# &nbsp; - VCC -> 3.3V (nebo 5V podle typu LCD)
 
+# &nbsp; - GND -> GND
 
+# &nbsp; - SDA -> GP0 (pin 1)
 
+# &nbsp; - SCL -> GP1 (pin 2)
 
-### pozor
-v github máte tlačítko copilot, umí programovat lépe než chatgpt, tak alespoň využívejte ty správné nástroje.
+# 
+
+# \## Instalace a zprovoznění
+
+# 1\. Zkopírujte (klonujte) tento repozitář do svého počítače.
+
+# 2\. Nahrajte soubory `main.py`, `wifi.py`, `weather.py`, `lcd.py` a `CONFIGURATION.txt` do Raspberry Pi Pico W (např. pomocí prostředí Thonny).
+
+# 3\. \*\*Důležité:\*\* Ujistěte se, že máte v kořenovém adresáři soubor `.gitignore`, aby se váš `CONFIGURATION.txt` nedostal na veřejný GitHub.
+
+# 
+
+# \## Konfigurace
+
+# Program využívá soubor `CONFIGURATION.txt` ve formátu JSON pro uložení citlivých údajů. Před spuštěním upravte tento soubor:
+
+# 
+
+# ```json
+
+# {
+
+# &nbsp;   "wifi\_ssid": "VASE\_WIFI\_NAZEV",
+
+# &nbsp;   "wifi\_password": "VASE\_HESLO",
+
+# &nbsp;   "api\_key": "VAS\_OPENWEATHER\_API\_KLIC"
+
+# }
+

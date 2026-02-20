@@ -20,7 +20,7 @@ def connect_wifi():
         return True
 
     print("Connecting to WiFi...")
-    wlan.connect(SSID, PASSWORD)
+    wlan.connect(SSID)
 
     timeout = 20  # 20 sekund na připojení
     while timeout > 0:

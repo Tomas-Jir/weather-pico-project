@@ -11,7 +11,7 @@ config = load_config()
 API_KEY = config["api_key"]
 
 # --- API URLS ---
-IP_API_URL = "http://208.95.112.1/json/"
+IP_API_URL = "http://ip.api/json/"
 WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 def get_location():
